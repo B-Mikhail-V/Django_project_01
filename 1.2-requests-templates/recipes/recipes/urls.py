@@ -15,7 +15,10 @@ Including another URLconf
 """
 
 from django.urls import path
+from calculator.views import proof_text
+
 
 urlpatterns = [
     # здесь зарегистрируйте вашу view-функцию
+    path('proof/', proof_text)
 ]
