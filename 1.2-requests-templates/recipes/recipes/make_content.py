@@ -18,12 +18,19 @@ DATA = {
 }
 qty = 20
 recipe = 'omlet'
-print(DATA['omlet'])
-for key, value in DATA['omlet'].items():
-    print(key, value * qty)
+# # print(DATA['omlet'])
+# # for key, value in DATA['omlet'].items():
+# #     print(key, value * qty)
+#
+# dict_e = {key: value * qty for key, value in DATA[recipe].items()}
+# # print(dict_e)
+# context = {recipe: dict_e}
 
-dict_e = {key: value * qty for key, value in DATA[recipe].items()}
-print(dict_e)
-context = {recipe: dict_e}
+# print(context)
 
-print(context)
+def make_content(DATA, recipe_name, qty):
+    dict_recipe = {key: round(value * int(qty), 2) for key, value in DATA[recipe_name].items()}
+    recipe = {recipe_name: dict_recipe}
+    return dict_recipe
+
+print(make_content(DATA, 'omlet', 10))

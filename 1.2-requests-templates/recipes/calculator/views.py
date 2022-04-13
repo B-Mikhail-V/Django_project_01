@@ -1,5 +1,6 @@
-from django.shortcuts import render
 from django.http import HttpResponse
+from recipes.make_content import *
+from django.shortcuts import render
 
 DATA = {
     'omlet': {
@@ -31,10 +32,15 @@ DATA = {
 # }
 
 def proof_text(request):
-    recipe_name = request.GET.get("recipe", '____')
-    context = {}
-    recipe = DATA[recipe_name]
-    for key, value in recipe.items:
-        print(key, value)
-    # print(DATA[recipe_name].items)
-    return HttpResponse(DATA[recipe_name])
+    recipe = request.GET.get("recipe", '')
+    qty_dishe = request.GET.get('qty', 1)
+
+    context = {
+        'recipe': make_content(DATA, recipe, qty_dishe),
+    }
+
+    return render(request, 'calculator/index.html', context)
+
+
+# def proof_text(request):
+#     return HttpResponse("Hello")
