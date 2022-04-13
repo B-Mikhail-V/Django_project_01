@@ -16,21 +16,18 @@ DATA = {
     },
     # можете добавить свои рецепты ;)
 }
-qty = 20
-recipe = 'omlet'
-# # print(DATA['omlet'])
-# # for key, value in DATA['omlet'].items():
-# #     print(key, value * qty)
-#
-# dict_e = {key: value * qty for key, value in DATA[recipe].items()}
-# # print(dict_e)
-# context = {recipe: dict_e}
 
-# print(context)
 
 def make_content(DATA, recipe_name, qty):
-    dict_recipe = {key: round(value * int(qty), 2) for key, value in DATA[recipe_name].items()}
-    recipe = {recipe_name: dict_recipe}
-    return dict_recipe
+    """
+    На вход получает словарь с рецептами, название блюда
+    и количество порций, а возвращает словарь для указанного названия блюда
+    с расчетом инградиентов с учетом количества порций.
+    """
 
-print(make_content(DATA, 'omlet', 10))
+    if recipe_name in DATA.keys():
+        dict_recipe = {key: round(value * int(qty), 2) for key, value in DATA[recipe_name].items()}
+        return dict_recipe
+    else:
+        dict_empty = {}
+        return dict_empty

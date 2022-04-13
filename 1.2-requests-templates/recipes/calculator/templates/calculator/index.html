@@ -5,6 +5,12 @@
     <title>Рецепты</title>
 </head>
 <body>
+{% if recipe.items %}
+<p style="color: red; font-size: 18px">
+    Состав рецепта "{{recipe_text}}",<br>
+    количество порций - {{recipe_qty}}:
+</p>
+{% endif %}
 {% for ingredient, amount in recipe.items %}
     <p>{{ ingredient }}: {{ amount }}</p>
 {% empty %}
