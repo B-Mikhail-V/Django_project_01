@@ -5,4 +5,5 @@ from phones.models import Phone
 
 @admin.register(Phone)
 class PhoneAdmin(admin.ModelAdmin):
-    pass
+    list_display = 'id', 'name', 'price', 'slug',
+    prepopulated_fields = {'slug': ('name',)}
