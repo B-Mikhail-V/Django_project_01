@@ -20,7 +20,6 @@ class Command(BaseCommand):
                 image=phone['image'],
                 release_date=phone['release_date'],
                 lte_exists=phone['lte_exists'],
-
             )
             phone_db.save()
 
