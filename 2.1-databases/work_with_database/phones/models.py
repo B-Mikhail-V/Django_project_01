@@ -8,7 +8,7 @@ class Phone(models.Model):
     image = models.FilePathField()
     release_date = models.DateField()
     lte_exists = models.BooleanField()
-    slug = models.SlugField(max_length=100, db_index=True)
+    slug = models.SlugField(max_length=100, blank=True)
 
     def __str__(self):
         return self.name
