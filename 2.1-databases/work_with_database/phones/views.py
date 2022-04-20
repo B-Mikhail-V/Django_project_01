@@ -19,11 +19,11 @@ def show_catalog(request):
 
 def show_product(request, slug):
     phone_object = Phone.objects.all()
-    for ph in phone_object:
-        if ph.slug == slug:
-            pk_find = ph.id
+    for phone in phone_object:
+        if phone.slug == slug:
+            phone_id_find = phone.id
     template = 'product.html'
     context ={
-        'phone': Phone.objects.get(id=pk_find),
+        'phone': Phone.objects.get(id=phone_id_find),
     }
     return render(request, template, context)
